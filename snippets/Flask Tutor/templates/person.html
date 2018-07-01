@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+
+Name: <input class="person_name" value="{{ person.get_name() }}" /><br>
+Surname: <input class="person_surname" value="{{ person.get_surname() }}" /><br>
+Year: <input class="person_year" value="{{ person.get_year() }}" /><br>
+
+{% include "footer.html" %}
+
+</body>
+</html>

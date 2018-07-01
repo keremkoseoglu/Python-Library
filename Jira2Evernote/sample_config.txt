@@ -1,0 +1,13 @@
+{"config": {
+    "jira": {
+        "base_url": "http://dummy.jira.com",
+        "username": "kerem.koseoglu",
+        "password": "secret"
+    },
+    "evernote": {
+        "token": "secret",
+        "notebook": "Active",
+        "comment_count": 3,
+        "tags": ["ecz"]
+    }
+}}

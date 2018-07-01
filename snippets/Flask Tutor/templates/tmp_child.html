@@ -1,0 +1,22 @@
+{% extends "tmp_parent.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% block one %}
+        <!-- we call super() and show parent content -->
+        {{ super() }}
+        block one - content of child<br>
+    {% endblock %}
+
+    {% block two %}
+        <!-- we dont call super() and hide parent content -->
+        block two - content of child<br>
+    {% endblock %}
+
+</body>
+</html>

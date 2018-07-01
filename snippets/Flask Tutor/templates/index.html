@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Tutor</title>
+</head>
+<body>
+
+Welcome! This is a very simple Flask Tutor website!<br>
+Here is a list of things you can do:<br>
+<ul>
+    <li><a href="{{ url_for("list_people") }}">List people</a></li> <!-- list_people is the DEF in application.py (not route value) -->
+    <li><a href="{{ url_for("json_list_people") }}">List people in JSON format</a></li>
+    <li><a href="{{ url_for("ajax_sample") }}">Ajax page, consuming the JSON data above</a></li>
+    <li><a href="/disclaimer">Disclaimer</a></li> <!-- Don't give direct links, but it is possible -->
+    <li><a href="{{ url_for("tmp_demo") }}">Demonstrate templates</a></li>
+    <li><a href="{{ url_for("html_injection") }}">HTML injection</a></li>
+    <li><a href="{{ url_for("admin") }}">Administration</a></li>
+</ul>
+
+{% include "footer.html" %}
+</body>
+</html>

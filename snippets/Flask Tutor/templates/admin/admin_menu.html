@@ -1,0 +1,16 @@
+{% extends "admin/admin_tmp.html" %}
+{% block top %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+Welcome to the admin menu!<br>
+    <ul>
+        <li><a href="{{ url_for("list_people") }}">List users</a></li>
+        <li><a href="#">Add user</a></li>
+    </ul>
+{% endblock %}
+
+{% block bottom %}
+    {{ super() }}
+{% endblock %}

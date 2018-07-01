@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Sample</title>
+    <script type=text/javascript src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+</head>
+<body>
+
+This is a sample Ajax page.<br>
+If all is well, you should see some data here.<hr><br>
+
+<div class="showcase"></div>
+
+<script>
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "{{ url_for("json_list_people") }}",
+        success: function(response) {
+            //alert(response["kerem_koseoglu"].name);
+            $.each(response, function(key, value) {
+               $(".showcase").append(key + " - " + value.name + " " + value.surname + "<br>");
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
