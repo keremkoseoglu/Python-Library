@@ -10,19 +10,14 @@ class OneLiner(AbstractPractice):
         "Circle of 5ths",
         "New lick",
         "Groove loop",
-        "Repertoire"
+        "Repertoire",
+        "Metronome",
+        "Solo / chord prg.",
+        "Rythm / groove"
     ]
 
     _TITLE = "One-Liner"
     _SUBTITLE = "Go over the one-liners"
-
-    def _clone_one_liners(self) -> []:
-        output = []
-
-        for i in range(0, len(self._ONE_LINERS)):
-            output.append(self._ONE_LINERS[i])
-
-        return output
 
     def get_exercise(self, quantity: int) -> exercise.Exercise:
 
@@ -31,7 +26,7 @@ class OneLiner(AbstractPractice):
 
         for i in range(0, quantity):
             if len(one_liners) == 0:
-                one_liners = self._clone_one_liners()
+                one_liners = self._ONE_LINERS.copy()
             random_index = random.randint(0, len(one_liners) - 1)
             random_one_liner = one_liners.pop(random_index)
             random_step = exercise_step.ExerciseStep(random_one_liner, "")
