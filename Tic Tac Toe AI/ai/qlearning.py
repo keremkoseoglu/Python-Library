@@ -1,6 +1,8 @@
 from ai.abstract_ai import AbstractAI
 from game.board import Board, Coordinate
+from game.rotator import Rotator
 from player.random_player import RandomPlayer
+from player.ai_player import AIPlayer
 import random
 
 class _PossibleMove:
@@ -15,7 +17,7 @@ class QLearning(AbstractAI):
     _CRLF = "\r\n"
     _FILE_NAME = "qlearning_memory.txt"
     _FILE_SEP = ";"
-    _TRAIN_GAME_COUNT = 1000000
+    _TRAIN_GAME_COUNT = 10000
 
     def __init__(self):
         self._matrix = {}
@@ -26,24 +28,33 @@ class QLearning(AbstractAI):
 
     def train_and_save(self):
 
-        # --- Play random games -----
+        # ______________________________
+        # Play random games
 
         for tgi in range(self._TRAIN_GAME_COUNT):  # TGI = Train Game Index
 
             # Play
             dojo = Board()
             random_pupil = RandomPlayer(self)
+            ai_pupil = AIPlayer(self)
             game_is_active = True
             while game_is_active:
                 next_player = dojo.get_next_player()
-                next_move = random_pupil.get_next_move(dojo)
+
+                if (random.randint(1, 10)) < 8:
+                    next_move = random_pupil.get_next_move(dojo)
+                else:
+                    next_move = ai_pupil.get_next_move(dojo)
+
                 dojo.play(next_player, next_move)
                 game_is_active = not dojo.is_game_complete()
 
             # Evaluate
             self._learn_from_board(dojo)
 
-        # --- Save -----
+        # ______________________________
+        # Save
+
         self._save_to_file()
 
     def load(self):
@@ -63,11 +74,17 @@ class QLearning(AbstractAI):
                     possible_moves.append(possible_move)
             self._matrix[split_line[0]] = possible_moves
 
-        x = 1
+
+    '''
+    This is where the AI "thinks". It returns the best possible move it can think of
+    '''
 
     def get_next_move(self, board: Board) -> Coordinate:
 
+        # ______________________________
         # Get previously experienced board position
+
+        possible_moves = []
 
         try:
             current_state = board.get_board()
@@ -77,9 +94,30 @@ class QLearning(AbstractAI):
                 current_state = board.get_negative_board()
                 possible_moves = self._matrix[current_state]
             except:
-                return
+                pass
 
+        # ______________________________
+        # Get previously experienced board positions by rotating
+
+        must_rotate = False
+
+        if len(possible_moves) == 0:
+            must_rotate = True
+        else:
+            for i in range(len(possible_moves)):
+                if possible_moves[i].value > 0:
+                    must_rotate = False
+                    break
+
+        if must_rotate:
+            possible_moves.extend(self._get_rotated_possible_moves(board.get_board()))
+            possible_moves.extend(self._get_rotated_possible_moves(board.get_negative_board()))
+
+        # ______________________________
         # Get best moves
+
+        if len(possible_moves) == 0:
+            return None
 
         best_value = 1
         best_coordinates = []
@@ -92,7 +130,9 @@ class QLearning(AbstractAI):
             elif possible_moves[i].value == best_value:
                 best_coordinates.append(possible_moves[i].coordinate)
 
+        # ______________________________
         # Return random best move
+
         if len(best_coordinates) == 0:
             return None
         elif len(best_coordinates) == 1:
@@ -102,6 +142,7 @@ class QLearning(AbstractAI):
             return best_coordinates[ret_index]
 
     def _add_evaluation(self, board_state:str, possible_move:_PossibleMove):
+
         # Ensure board state exists in matrix
         if board_state not in self._matrix.keys():
             self._matrix[board_state] = []
@@ -114,6 +155,28 @@ class QLearning(AbstractAI):
 
         # If doesn't exist, enter new one
         self._matrix[board_state].append(possible_move)
+
+    def _get_rotated_possible_moves(self, current_state:str) -> []:
+        output = []
+        rotator = Rotator(current_state)
+
+        for a in range(2):
+            for b in range(2):
+                for c in range(3):
+                    rotator.rotate_clockwise()
+                    try:
+                        for possible_move in self._matrix[rotator.get_rotated_matrix()]:
+                            new_possible_coor = rotator.get_original_coordinate(possible_move.coordinate)
+                            new_possible_move = _PossibleMove(new_possible_coor, possible_move.value)
+                            output.append(new_possible_move)
+                    except:
+                        pass
+                rotator.reset()
+                rotator.flip_horizontal()
+            rotator.reset()
+            rotator.flip_vertical()
+
+        return output
 
     def _learn_from_board(self, dojo: Board):
         winner = dojo.get_winner()

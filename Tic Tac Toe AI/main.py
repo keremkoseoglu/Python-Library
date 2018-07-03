@@ -3,7 +3,8 @@ from gui.tk_gui import TicTacToeGUI
 from player.ai_player import AIPlayer
 from player.random_player import RandomPlayer
 
-# --- Program functions -----
+# ______________________________
+# Program functions
 
 
 def play_with_trained_qlearning():
@@ -21,8 +22,8 @@ def train_qlearning():
     q = QLearning()
     q.train_and_save()
 
-
-# --- Call desired function here-----
+# ______________________________
+# Call desired function here
 
 # step 1:
 # train_qlearning()

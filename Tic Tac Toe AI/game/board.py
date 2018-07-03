@@ -81,6 +81,9 @@ class Board:
 
         return output
 
+    def get_matrix(self) -> str:
+        return self._matrix
+
     def get_move_history(self) -> []:
         return self._move_history
 

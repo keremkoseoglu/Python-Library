@@ -46,11 +46,12 @@ If you don't know anything about Q-Learning,
 you can get more info [here](http://mnemstudio.org/path-finding-q-learning-tutorial.htm).
 
 In training mode, the program will play against
-itself with purely random moves. When a game is
+itself with 80% random moves and 20% of learned moves 
+during the training session. When a game is
 finished, the moves will be evaluated.
 The number of games to be played can be 
 modified in ai.qlearning. The initial number
-is 1.000.000.
+is 10K.
 
 For the winner, the last move is worth n points, 
 and former moves are worth n-1, n-2, ... points.
@@ -63,19 +64,15 @@ Evaluation of games are stored in the qlearning_memory.txt
 file. A sample dump file is included. As the
 code plays against humans, it keeps the file updated.
 
+AI is also able to do board mirroring. If it can't find a good move
+in the *database* (text file), it will rotate & flip the board and
+seek similar patterns.
+
 #### Possible improvements
 
 In a semi-supervised training approach, I 
 could have given the ability to foresee
 obvious good / bad moves. 
-
-During training, the program makes purely
-random choices. No AI is included here.
-
-It is possible to mirror previous board 
-states horizontally & vertically during
-the decision making process, but I neglected
-this possible improvement.
 
 It is also possible to re-play lost games
 by changing one move at a time until the
