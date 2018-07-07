@@ -101,7 +101,7 @@ class EvernoteManager:
             if i == 0:
                 body += '<hr/><b>Son yorumlar</b><br/><br/>'
             current_comment = issue.fields.comment.comments[comment_idx]
-            comment_body = current_comment.body.replace("\r\n", "<br/>")
+            comment_body = self._get_safe_text(current_comment.body).replace("\r\n", "<br/>")
             body += '<b>' + current_comment.author.displayName + ", " + current_comment.created + ':</b> <br/>' + comment_body + "<br/><br/>"
 
         # Bottom

@@ -13,7 +13,8 @@ class OneLiner(AbstractPractice):
         "Repertoire",
         "Metronome",
         "Solo / chord prg.",
-        "Rythm / groove"
+        "Rythm / groove",
+        "3tone sub walk"
     ]
 
     _TITLE = "One-Liner"
