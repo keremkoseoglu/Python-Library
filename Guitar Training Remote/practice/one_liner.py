@@ -13,8 +13,9 @@ class OneLiner(AbstractPractice):
         "Repertoire",
         "Metronome",
         "Solo / chord prg.",
-        "Rythm / groove",
-        "3tone sub walk"
+        "3tone sub walk",
+        "Alt. guitar",
+        "New style"
     ]
 
     _TITLE = "One-Liner"

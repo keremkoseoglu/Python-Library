@@ -34,9 +34,9 @@
         <option value="$PROJECT_DIR$/config.txt" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/sample_config.txt" />
-        <option value="$PROJECT_DIR$/evernote_manager.py" />
         <option value="$PROJECT_DIR$/j2e.py" />
         <option value="$PROJECT_DIR$/jira_manager.py" />
+        <option value="$PROJECT_DIR$/evernote_manager.py" />
       </list>
     </option>
   </component>
@@ -50,16 +50,16 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="840" />
     <option name="y" value="22" />
-    <option name="width" value="840" />
-    <option name="height" value="975" />
+    <option name="width" value="1920" />
+    <option name="height" value="1125" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -71,7 +71,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -132,7 +131,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="840" y="22" width="840" height="975" extended-state="0" />
+    <frame x="0" y="22" width="1920" height="1125" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -141,7 +140,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32801822" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32963374" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28947368" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12726304" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -434,17 +433,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evernote_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1338">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jira_manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evernote_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>

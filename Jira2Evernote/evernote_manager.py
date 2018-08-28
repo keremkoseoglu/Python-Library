@@ -59,12 +59,12 @@ class EvernoteManager:
 
         # URL
 
-        body += 'Madde: <a href="' + issue_url + '">' + issue_url + '</a><br/>'
         try:
             parent_url = jira_man.get_url(issue.fields.parent.key)
             body += 'Üst madde: <a href="' + parent_url + '">' + parent_url + '</a><br/>'
         except:
             pass
+        body += 'Madde: <a href="' + issue_url + '">' + issue_url + '</a><br/>'
 
         # Summary
 

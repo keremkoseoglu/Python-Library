@@ -7,7 +7,7 @@ class AbstractPractice(ABC):
         pass
 
     @abstractmethod
-    def get_exercise(self) -> exercise.Exercise:
+    def get_exercise(self, quantity: int) -> exercise.Exercise:
         pass
 
     def get_random_position_suggestion_text(self) -> str:
