@@ -7,15 +7,22 @@ class OneLiner(AbstractPractice):
 
     _ONE_LINERS = [
         "Old licks",
-        "Circle of 5ths",
         "New lick",
-        "Groove loop",
-        "Repertoire",
-        "Metronome",
+
         "Solo / chord prg.",
-        "3tone sub walk",
-        "Alt. guitar",
-        "New style"
+        "Solo / repertoir",
+        "Solo / rhythm changes",
+        "Solo / sing",
+        
+        "Transcribe solo",
+        "Transcribe groove",
+
+        "Bebop (2 5 1)",
+        "Circle of 5ths",
+        "Groove loop",
+        "Metronome",
+        "New style",
+        "Repertoire"
     ]
 
     _TITLE = "One-Liner"

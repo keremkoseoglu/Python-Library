@@ -1,0 +1,13 @@
+{"config": {
+    "jira": {
+        "base_url": "http://dummy.com",
+        "username": "kerem.koseoglu",
+        "password": "dummy_password"
+    },
+    "mac": {
+        "tmp_file": "/Users/kerem/Downloads/j2n.txt"
+    },
+    "note": {
+        "comment_count": 3
+    }
+}}

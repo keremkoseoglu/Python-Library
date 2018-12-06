@@ -1,11 +1,16 @@
 from model import exercise, exercise_step
-from music_theory import chord, mode, position
+from music_theory import chord, position, scale
 from practice import abstract_practice
+import random
 
 class Arpeggio(abstract_practice.AbstractPractice):
 
     _TITLE = "Arpeggio"
-    _SUBTITLE = "Do an arpeggio on the given chord / mode"
+
+    _ARPEGGIO_TYPES = [
+        "Do an arpeggio on the given scale",
+        "Walk diatonic arpeggios from scale"
+    ]
 
     def get_exercise(self, quantity: int) -> exercise.Exercise:
 
@@ -19,7 +24,7 @@ class Arpeggio(abstract_practice.AbstractPractice):
         random_chords = chord.Chord().get_random_chords(quantity)
         quantity_left = quantity - len(random_chords)
         if quantity_left > 0:
-            random_modes = mode.Mode().get_random_modes(quantity_left)
+            random_scales = scale.Scale().get_random_scales(quantity_left)
 
         random_stuff = []
 
@@ -27,8 +32,8 @@ class Arpeggio(abstract_practice.AbstractPractice):
             random_stuff.append(random_chords[i])
 
         try:
-            for i in range(len(random_modes)):
-                random_stuff.append(random_modes[i])
+            for i in range(len(random_scales)):
+                random_stuff.append(random_scales[i])
         except:
             pass
 
@@ -40,5 +45,9 @@ class Arpeggio(abstract_practice.AbstractPractice):
             random_step = exercise_step.ExerciseStep(random_arp, "Suggested position: " + str(suggested_position))
             random_steps.append(random_step)
 
-        output = exercise.Exercise(self._TITLE, self._SUBTITLE, random_steps)
+        output = exercise.Exercise(self._TITLE, self._get_arpeggio_type(), random_steps)
         return output
+
+    def _get_arpeggio_type(self) -> str:
+        random_index = random.randint(0, len(self._ARPEGGIO_TYPES) - 1)
+        return self._ARPEGGIO_TYPES[random_index]

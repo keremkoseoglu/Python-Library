@@ -1,14 +1,13 @@
 from model import exercise, exercise_step
 from music_theory import note
 from practice import abstract_practice
-import random
 
 
-class NotesOnFretboard(abstract_practice.AbstractPractice):
+class NotesOnStrings(abstract_practice.AbstractPractice):
 
-    _MAX_NOTE_PER_STEP = 3
-    _TITLE = "Fretboard single note memorization"
-    _SUBTITLE = "Find the given note(s) on each string"
+    _STRINGS = 4
+    _TITLE = "String note memorization"
+    _SUBTITLE = "Find the given notes on subsequent strings"
 
     def get_exercise(self, quantity: int) -> exercise.Exercise:
 
@@ -18,8 +17,7 @@ class NotesOnFretboard(abstract_practice.AbstractPractice):
         for step_index in range(0, quantity):
             step_text = ""
 
-            note_count_of_step = random.randint(1, self._MAX_NOTE_PER_STEP)
-            notes_of_step = note_obj.get_random_notes(note_count_of_step)
+            notes_of_step = note_obj.get_random_notes(self._STRINGS)
             for note_of_step in notes_of_step:
                 if step_text != "":
                     step_text += ", "

@@ -97,6 +97,7 @@ class Face(GridLayout):
 
         self._workout = None
         self._exercise_step_tick_count = 0
+        self._guitar_selected = False
         self._restart()
 
     def _handle_button_click(self, button: int):
@@ -150,7 +151,14 @@ class Face(GridLayout):
         self._stop_watch_label.text = status_text
 
     def _restart(self):
-        self._workout = some_practices.SomePractices().get_workout()
+        practice_obj = some_practices.SomePractices()
+        if self._guitar_selected:
+            practice_obj.set_select_guitar(False)
+        else:
+            practice_obj.set_select_guitar(True)
+            self._guitar_selected = True
+
+        self._workout = practice_obj.get_workout()
         self._exercise_step_tick_count = -1
         self._paint_exercise()
         self._paint_exercise_step()

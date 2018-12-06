@@ -4,10 +4,26 @@ import random
 
 class WorkOut:
 
-    def __init__(self, exercises:[]):
+    _GUITAR_M = "USA Bass"
+    _GUITAR_D = "Mexican Bass"
+    _GUITAR_A = "Taylor"
+
+    def __init__(self, exercises: []):
         self._exercises = exercises
         self._exercise_index = 0
         self._step_index = 0
+
+    def add_random_guitar(self):
+        random_number = random.randint(1, 100)
+        if random_number >= 1 and random_number < 60:
+            random_guitar = self._GUITAR_M
+        elif random_number >= 60 and random_number < 90:
+            random_guitar = self._GUITAR_D
+        else:
+            random_guitar = self._GUITAR_A
+        guitar_step = ExerciseStep(random_guitar)
+        guitar_exercise = Exercise("Guitar", "Pick the following guitar",[guitar_step])
+        self._exercises.insert(0, guitar_exercise)
 
     def get_current_exercise(self) -> Exercise:
         try:

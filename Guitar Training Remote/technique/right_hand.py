@@ -6,7 +6,9 @@ class RightHand:
         self._techniques = [
             "4 finger gallop",
             "Index mid index",
-            "Regular"
+            "3 finger scale",
+            "Chr. seesaw",
+            "String crossing"
         ]
 
     def _clone_techniques(self) -> []:

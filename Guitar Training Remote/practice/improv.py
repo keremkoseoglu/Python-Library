@@ -7,16 +7,23 @@ class Improv(AbstractPractice):
     _IMPROVS = [
         "Tonal / modal",
         "2 5 1 lick",
+        "3/5 note phrasing",
         "Random note",
         "Approach note",
         "Sequence",
         "Tritone sub",
+        "Tritone sub (Lyd b7)",
         "Dom7 3rd Dim",
         "Half step above",
         "Simple melody",
         "Chromatic",
         "Repetition",
-        "Chords"
+        "Chords",
+        "Distant notes",
+        "Two threes maj",
+        "Bebop",
+        "Blockbuster",
+        "Feeling projection"
     ]
 
     _TITLE = "Improv"
