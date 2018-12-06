@@ -22,3 +22,7 @@ To use the program in your own system, the following steps should be taken.
 - Edit **tmp2note.applescript** so it points to the correct temporary folder name in **jira2notes.txt** .
 
 To start the program, simply execute **start.app** (or however you named this file).
+
+## Optional
+
+To disable Mac security warnings, you should enable the script files for accessibility & file system control on your system settings.
